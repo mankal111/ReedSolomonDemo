@@ -2,7 +2,7 @@ package reed.solomon;
 
 import java.util.Arrays;
 /**
- * Κώδικας Reed-Solomon.
+ * Reed-Solomon Code.
  * @author manolis kalafatis.
  */
 public class ReedSolomon {
@@ -21,10 +21,9 @@ public class ReedSolomon {
     
    
     /**
-     * Εισάγει στον πίνακα CombArr όλους τους συνδυασμούς k-άδων απο στοιχεία 
-     * που υπάρχουν στον πίνακα s.
-     * @param s Πίνακας των στοιχείων απο τα οποία θέλουμε να σχηματιστούν οι k-άδες.
-     * @param k Αριθμός των στοιχείων των συνδυασμών.
+     * Puts in CombArr all the k-combinations from elements of the s array. 
+     * @param s Array with the elements that we want to make the k-combinations.
+     * @param k Number of the elements of the combinations.
      */
     public  static void GetCombArr(int [] s, int k) { TNOfComb=0; GetCombArr(s, new int [0], k); }
     private static void GetCombArr(int [] s, int [] BegOfArr, int k) {
@@ -36,10 +35,10 @@ public class ReedSolomon {
     }  
 
     /**
-     * Επιστρέφει το πλήθος των δυνατών Κ-άδων απο N στοιχεία.
-     * @param N Ο αριθμός όλων των στοιχείων.
-     * @param K Ο αριθμός των στοιχείων των συνδυασμών.
-     * @return Ο αριθμός των δυνατών συνδιασμών.
+     * Number of possible Κ-combinations from N elements.
+     * @param N Number of the elements.
+     * @param K Number of the combination elements.
+     * @return Number of possible K-combinations.
      */
     public static int BinCo(int N, int K){
         int result = 1;  
@@ -51,9 +50,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Δημιουργεί ενα πίνακα που περιέχει τους αριθμούς 0,1,2,...,n-1.
-     * @param n Το μέγεθος του πίνακα.
-     * @return Πίνακας με τους αριθμούς 0,1,2,...,n-1.
+     * Creates an array with the numbers 0,1,2,...,n-1.
+     * @param n The size of the array.
+     * @return Array with the numbers 0,1,2,...,n-1.
      */
     static int [] IntArr(int n){
         int [] ia = new int [n];
@@ -64,10 +63,10 @@ public class ReedSolomon {
     }
     
     /**
-     * Επιστρέφει πίνακα με τα στοιχεία του s απο το στοιχείο στη θέση BIndex και μετά.
-     * @param s Ο πίνακας απο τον οποίο θα αντιγραφούν τα στοιχεία.
-     * @param BIndex Το σημείο του s απο το οποίο θα αντιγραφούν τα στοιχεία.
-     * @return Ο πίνακας με τα τελευταία στοιχεία του s.
+     * Returns an array with elements of s from the element with index BIndex.
+     * @param s Array from which the function will return elements.
+     * @param BIndex The index of the element s from which the function will begin to return elements.
+     * @return Array with the last elements of s, beginning from BIndex.
      */
     static int [] SubArr(int [] s, int BIndex){
         int [] result = new int [s.length-BIndex];
@@ -78,10 +77,10 @@ public class ReedSolomon {
     }
     
     /**
-     * Ενώνει τους πίνακες A και B.
-     * @param A Ο πρώτος πίνακας.
-     * @param B Ο δεύτερος πίνακας.
-     * @return Το αποτέλεσμα.
+     * Concatenates the arrays A and B.
+     * @param A First array.
+     * @param B Second array.
+     * @return Concatenated array.
      */
     static int [] ArConcat(int [] A, int B) {
         int [] C= new int [A.length+1];
@@ -92,9 +91,9 @@ public class ReedSolomon {
     }
 
     /**
-     * Κωδικοποιεί το κείμενο.
-     * @param txt Το κείμενο που θέλουμε να κωδικοποιήσουμε.
-     * @return Κωδικοποιημένο κείμενο.
+     * Encodes the text.
+     * @param txt The text we want to encode.
+     * @return Encoded text.
      */
     public static int [] Encode(String txt){
         GF = GaloisField.getInstance(size,PrPol[m-3]);
@@ -118,9 +117,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Αποκωδικοποιεί το κείμενο.
-     * @param codeintar Το κείμενο που θέλουμε να αποκωδικοποιήσουμε.
-     * @return Αποκωδικοποιημένο κείμενο.
+     * Decodes the text.
+     * @param codeintar The text we want to decode.
+     * @return Decoded text.
      */
     public static String Decode(int [] codeintar){
         
@@ -142,10 +141,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Μετατρέπει κείμενο σε πίνακα με ακεραιους. Κάθε στοιχείο του πίνακα
-     * αντιστοιχεί σε γράμμα του κειμένου.
-     * @param text Το κείμενο που θέλουμε να μετατρέψουμε.
-     * @return Πίνακα με ακεραίους που αντιστοιχούν στα γράμματα του κειμένου.
+     * Converts the text to an array of integers. Each element of the array represents a letter.
+     * @param text The text we want to convert.
+     * @return Array of integers the represent letters of the text.
      */
     public static int [] TextToIntAr(String text){  
         int [] intarray = new int [text.length()];
@@ -156,11 +154,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Μετατρέπει πίνακα με ακεραίους σε κείμενο. Κάθε στοιχείο του πίνακα 
-     * το μετατρέπει σε γράμμα.
-     * @param IntAr Ο πίνακας που περιέχει τους αριθμούς που αντιστοιχούν
-     *      στα γράμματα.
-     * @return Κείμενο που δημιουργήθηκε απο το πίνακα.
+     * Converts an array of integers to text. Each element of the array is converted to a letter.
+     * @param IntAr Array of integers that represent letters.
+     * @return Text that converted from the IntAr.
      */
     public static String IntArToText(int [] IntAr){
         String text="";
@@ -173,9 +169,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Μετατροπή αλφαριθμητικού κώδικα σε πίνακα ακεραίων.
-     * @param text Ο αλφαριθμητικός κώδικας.
-     * @return Πίνακας ακεραίων.
+     * Converts alphanumeric to Array of integers.
+     * @param text alphanumeric.
+     * @return Array of integers.
      */
     public static int [] NumStrToIntAr(String text){ 
         int[] results = new int[text.length()];
@@ -189,9 +185,9 @@ public class ReedSolomon {
     }
     
     /**
-     * Μετατροπή πίνακα ακεραίων σε αλφαριθμητικό κώδικα.
-     * @param IntAr Ο πίνακας.
-     * @return Αλφαριθμητικός κώδικας.
+     * Converts Array of integers to alphanumeric.
+     * @param IntAr Array of integers.
+     * @return alphanumeric.
      */
     public static String IntArToNumStr(int [] IntAr){ 
         String NumStr="";
@@ -204,8 +200,8 @@ public class ReedSolomon {
     }
 
     /**
-     * Δημιουργεί τον πίνακα των πρωταρχικών ριζών.
-     * @return Πίνακας πρωταρχικών ριζών.
+     * Creates the array of the primary roots.
+     * @return Array of primary roots.
      */
     public static int[] MakePRs() {
         int [] PRsta = new int [size];
@@ -216,10 +212,10 @@ public class ReedSolomon {
     }
 
     /**
-     * Επιστρέφει επιλογή των γραμμών του πίνακα codeintar που ορίζονται απο τον comb.
-     * @param codeintar Ο πίνακας απο τον οποίο θα πάρει τις γραμμές.
-     * @param comb Ο πίνακας που περιέχει τις θέσεις των γραμμών που θέλουμε.
-     * @return Πίνακας με γραμμές απο τον πίνακα codeintar.
+     * Returns the rows of the codeintar with indexes from comb.
+     * @param codeintar The array from which we want to take the rows.
+     * @param comb Array with the indexes of the rows that we want to take.
+     * @return Array with rows of codeintar.
      */
     private static int[] ArrSel(int[] codeintar, int[] comb) {
         int [] Sel=new int [comb.length];
@@ -230,10 +226,10 @@ public class ReedSolomon {
     }
 
     /**
-     * Λύνει το Vandermonde σύστημα που ορίζεται απο το t1 και το t2. 
-     * Η λύση μετά την ολοκλήρωση, θα περιέχεται στο t2.
-     * @param t1 Πίνακας που περιγράφει το σύστημα.
-     * @param t2 Πίνακας που περιγράφει το σύστημα.
+     * Solves the  Vandermonde system that described by t1 and t2. 
+     * The root, after the procedure, will be in t2.
+     * @param t1 Array that describes the system.
+     * @param t2 Array that describes the system.
      */
     private static void solveVandermondeSystem(int[] t1, int[] t2) {
         int [][] varrey=new int [k][k];
@@ -269,8 +265,8 @@ public class ReedSolomon {
 }
 
     /** 
-     * Η κλάση solutions χρησιμοποιείται για την καταχώρηση των λύσεων των
-     * συστημάτων εξισώσεων σε πίνακα και την εύρεση της συχνότερης λύσης.
+     * The class solutions is used to store the solutions of the equation systems 
+     * in array and finds the most frequent solution.
      */
 class solutions {
     public int [][] SolArr = new int [ReedSolomon.NOfComb][ReedSolomon.k];
@@ -278,7 +274,7 @@ class solutions {
     public int [] SolScores = new int [ReedSolomon.NOfComb];
     
     /**
-     * Αρχικοποίηση του αντικειμένου. 
+     * Constructor. 
      */
     public solutions(){
         NOfSol=0;
