@@ -15,7 +15,7 @@ public class ReedSolomon {
     public static int TNOfComb=0;
     public static int NOfComb;
     public static int [] PrPol = {11, 19, 37};
-    public static int CharStrt=47;
+    public static int CharStrt='0';
     public static int size;
 
     

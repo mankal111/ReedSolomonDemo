@@ -10,14 +10,15 @@ public class ReedSolomonUI extends javax.swing.JFrame {
      */
     public ReedSolomonUI() {
         initComponents();
+        initposlet();
     }
 
     /**
-     * Καταστρέφει τον δεδομένο αλφαριθμητικό κώδικα OrCode με πιθανότητα prob.
+     * Destroys each character of the alphanumeric OrCode with probability prob.
      *
-     * @param OrCode Αλφαριθμητικός κώδικας.
-     * @param prob Πιθανότητα να καταστραφεί ένα γράμμα.
-     * @return Κατεστραμένος αλφαριθμητικός κώδικας.
+     * @param OrCode alphanumeric code.
+     * @param prob Probability of character destruction.
+     * @return Destroyed alphanumeric code.
      */
     public String DestroyText(String OrCode, Float prob) {
         Random random = new Random();
@@ -32,8 +33,8 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                 DestrCodeInt[i] = (int) (random.nextDouble() * Math.pow(2, ReedSolomon.m));
             }
         }
-        JOptionPane.showMessageDialog(null, "Καταστράφηκαν " + errors
-                + " ψηφία \nαπο το σύνολο των " + OrCodeInt.length + " ψηφίων.");
+        JOptionPane.showMessageDialog(null, errors
+                + " characters have been destroyed. \n All the characters are " + OrCodeInt.length + ".");
         return ReedSolomon.IntArToNumStr(DestrCodeInt);
     }
 
@@ -202,7 +203,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         poslet.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        jLabel23.setText("Επιτρεπτοί χαρακτήρες:");
+        jLabel23.setText("Permited characters:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -271,8 +272,8 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(poslet)
-                .addGap(31, 31, 31))
+                .addComponent(poslet, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -377,23 +378,26 @@ public class ReedSolomonUI extends javax.swing.JFrame {
 
         ReedSolomon.m = Integer.parseInt(mtxt.getText());
         if ((ReedSolomon.m > 5) || (ReedSolomon.m < 3)) {
-            JOptionPane.showMessageDialog(null, "Το m θα πρέπει να έχει τιμή 3, 4 ή 5.");
+            JOptionPane.showMessageDialog(null, "The m must be 3, 4 or 5.");
             return;
+        }
+        if (ReedSolomon.m == 5) {
+            JOptionPane.showMessageDialog(null, "When m=5 the number of equations is very big.\n It might take several minutes to find the solutions.");
         }
         ReedSolomon.size = (int) Math.pow(2, ReedSolomon.m);
         ReedSolomon.er = Integer.parseInt(ertxt.getText());
         ReedSolomon.k = ReedSolomon.size - 2 * ReedSolomon.er - 1;
         if (ReedSolomon.er < 0) {
-            JOptionPane.showMessageDialog(null, "Ο αριθμός των λαθών δεν μπορεί να είναι αρνητικός.");
+            JOptionPane.showMessageDialog(null, "The number of mistakes can not be negative.");
             return;
         }
         if (ReedSolomon.k <= 1) {
-            JOptionPane.showMessageDialog(null, "Ο αριθμός των λαθών είναι πολύ μεγάλος.");
+            JOptionPane.showMessageDialog(null, "The number of mistakes is too big.");
             return;
         }
         ReedSolomon.NOfComb = ReedSolomon.BinCo(ReedSolomon.size, ReedSolomon.k);
-        JOptionPane.showMessageDialog(null, "Θα χρειαστεί να λυθούν " + ReedSolomon.NOfComb + " συστήματα εξισώσεων\nμεγέθους "
-                + ReedSolomon.k + "X" + ReedSolomon.k + ".");
+        JOptionPane.showMessageDialog(null, ReedSolomon.NOfComb + " equation systems of size "
+                + ReedSolomon.k + "X" + ReedSolomon.k +"\nhave to be solved.");
         String text = OriginalText.getText();
         EncodedText.setText(ReedSolomon.IntArToNumStr(ReedSolomon.Encode(text)));
         
@@ -415,6 +419,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         EncodedTextWErrors.setText("");
         OriginalText.setText("");
         ProbText.setText("0.01");
+        initposlet();
     }//GEN-LAST:event_ResetActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -436,6 +441,10 @@ public class ReedSolomonUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ertxtActionPerformed
 
     private void mtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mtxtActionPerformed
+        initposlet();
+    }//GEN-LAST:event_mtxtActionPerformed
+
+    private void initposlet(){
         int m = Integer.parseInt(mtxt.getText());
         int size = (int) Math.pow(2, m);
         char c;
@@ -445,8 +454,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
             st += c;
         }
         poslet.setText(st);
-    }//GEN-LAST:event_mtxtActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
