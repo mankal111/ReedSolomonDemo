@@ -281,9 +281,8 @@ class solutions {
     }
     
     /**
-     * Εισαγωγή λύσης. Ελέγχει πρώτα αν υπάρχει. Αν δεν υπάρχει την προσθέτει.
-     * Αν υπάρχει αυξάνει τον μετρητή που της αντιστοιχεί.
-     * @param sol Η εξίσωση που θέλουμε να εισάγουμε.
+     * Checks if the solution exists, if not, adds it in the array.
+     * @param sol The solution we want to add.
      */
     public void AddSol(int [] sol){
         int SolPos=SolExists(sol);
@@ -295,8 +294,8 @@ class solutions {
     }
     
     /**
-     * Εισαγωγή λύσης. 
-     * @param sol Η εξίσωση που θέλουμε να εισάγουμε.
+     * Adds new solution. 
+     * @param sol The solution we want to add.
      */
     private void AddNewSol(int [] sol){       
         System.arraycopy(sol, 0, SolArr[NOfSol], 0, ReedSolomon.k);
@@ -305,9 +304,9 @@ class solutions {
     }
 
     /**
-     * Έλεγχος ύπαρξης λύσης. 
-     * @param sol Η εξίσωση που θέλουμε να ελέγξουμε.
-     * @return θέση της εξίσωσης ή -1 αν δεν υπάρχει στον πίνακα.
+     * Check if the solution exists. 
+     * @param sol The solution we want to add.
+     * @return Position of the solution in the array or -1 if solution does not exist.
      */
     private int SolExists(int[] sol) {
         for (int i = 0; i<NOfSol; i++){
@@ -319,8 +318,8 @@ class solutions {
     }
     
     /**
-     * Επιστρέφει την συχνότερη λύση.
-     * @return συχνότερη λύση.
+     * Returns the most frequent solution.
+     * @return Most frequent solution.
      */
     public int [] GetBestSol(){
         int max = 0;
@@ -331,7 +330,7 @@ class solutions {
     }
     
     /**
-     * Εκτυπώνει τον πίνακα των λύσεων μαζί με τις συχνότητες.
+     * Prints the array of the solutions.
      */
     public void prints(){
         for (int i=0;i<=NOfSol;i++){

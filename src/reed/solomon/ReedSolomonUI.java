@@ -64,7 +64,6 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -96,7 +95,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         OriginalText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(OriginalText);
 
-        jButton1.setText("Κωδικοποίηση");
+        jButton1.setText("Encode");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,7 +106,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         EncodedText.setRows(5);
         jScrollPane2.setViewportView(EncodedText);
 
-        jButton2.setText("Καταστροφή!");
+        jButton2.setText("Destroy!");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -118,7 +117,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         EncodedTextWErrors.setRows(5);
         jScrollPane3.setViewportView(EncodedTextWErrors);
 
-        jButton3.setText("Αποκωδικοποίηση");
+        jButton3.setText("Decode");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -131,7 +130,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         DecodedText.setWrapStyleWord(true);
         jScrollPane4.setViewportView(DecodedText);
 
-        jLabel7.setText("Πιθανότητα:");
+        jLabel7.setText("Probability:");
 
         ProbText.setText("0.01");
         ProbText.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +139,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
             }
         });
 
-        Reset.setText("Καθαρισμός");
+        Reset.setText("Reset");
         Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetActionPerformed(evt);
@@ -148,58 +147,55 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel3.setText("θέλετε να κωδικοποιήσετε.");
+        jLabel3.setText("to encode.");
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel16.setText("για να δείτε το αποτέλεσμα");
+        jLabel16.setText("decoded text.");
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel1.setText("Βήμα 2ο:");
-
-        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel17.setText("της αποκωδικοποίησης.");
+        jLabel1.setText("2nd step:");
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel2.setText("Εισάγετε τα δεδομένα που  ");
+        jLabel2.setText("Type the text which you want");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel5.setText("Πατήστε κωδικοποίηση ");
+        jLabel5.setText("Click encode");
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel4.setText("Βήμα 3ο:");
+        jLabel4.setText("3rd step:");
 
         jLabel21.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel21.setText("Βήμα 5ο:");
+        jLabel21.setText("5th step:");
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel6.setText("για να το κωδικοποιήσετε.");
+        jLabel6.setText("to encode the text.");
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel8.setText("Βήμα 4ο:");
+        jLabel8.setText("4th step:");
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel9.setText("Εισάγετε την πιθανότητα");
+        jLabel9.setText("Type the probability");
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel10.setText("να γίνει λάθος σε ");
+        jLabel10.setText("of character destruction ");
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel11.setText("ψηφίο του κώδικα και");
+        jLabel11.setText("in the encoded text");
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel12.setText("πατήστε \"Καταστροφή!\".");
+        jLabel12.setText("and click Destruction.");
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel15.setText("Πατήστε αποκωδικοποίηση");
+        jLabel15.setText("Click decode to see the");
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel14.setText("Βήμα 1ο:");
+        jLabel14.setText("1st step:");
 
         jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel18.setText("Εισάγετε το m (3 ή 4)");
+        jLabel18.setText("Type the m number (3 or 4) and");
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel19.setText("και τον αριθμό των λαθών.");
+        jLabel19.setText("the number of the wrong bytes.");
 
         poslet.setFont(new java.awt.Font("Ubuntu", 0, 10)); // NOI18N
         poslet.setText(" ");
@@ -221,7 +217,6 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel17)
                     .addComponent(jLabel12)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -239,7 +234,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
@@ -251,13 +246,13 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
@@ -267,15 +262,13 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(poslet)
@@ -284,7 +277,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Κωδικοποίηση Reed-Solomon");
+        jLabel13.setText("Reed-Solomon Encoding");
 
         jLabel20.setText("m:");
 
@@ -295,7 +288,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setText("Πιθανα λάθη:");
+        jLabel22.setText("Wrong byte:");
 
         ertxt.setText("2");
         ertxt.addActionListener(new java.awt.event.ActionListener() {
@@ -374,7 +367,7 @@ public class ReedSolomonUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Reset, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -509,7 +502,6 @@ public class ReedSolomonUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
